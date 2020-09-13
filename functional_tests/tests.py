@@ -70,7 +70,8 @@ class NewVisitorTest(LiveServerTestCase):
 
         # Agora, um novo usuário, João, entra no site
         self.browser.quit()
-        self.browser = webdriver.Firefox()
+        binary = FirefoxBinary('/usr/lib/firefox/firefox')
+        self.browser = webdriver.Firefox(firefox_binary=binary)
 
         # João visita a página inicial. Não existe nenhum sinal da lista de Maria
         self.browser.get(self.live_server_url)
