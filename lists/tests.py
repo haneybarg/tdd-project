@@ -8,10 +8,6 @@ class HomePageTest(TestCase):
         self.assertTemplateUsed(response, 'home.html')
         # self.assertTemplateUsed(response, 'wrong.html')
 
-    def test_only_saves_items_when_necessary(self):
-        self.client.get('/')
-        self.assertEqual(Item.objects.count(), 0)
-
     def test_uses_list_template(self):
         response = self.client.get('/lists/the-only-list-in-the-world/')
         self.assertTemplateUsed(response, 'list.html')
