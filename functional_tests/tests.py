@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 import unittest
 import time
 
@@ -11,7 +11,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 MAX_WAIT = 5
 
 
-class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerTestCase):
     def setUp(self):
         binary = FirefoxBinary('/usr/lib/firefox/firefox')
         self.browser = webdriver.Firefox(firefox_binary=binary)
